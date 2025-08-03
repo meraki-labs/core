@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d580901de64f9d577d8c139cea61306",
+    "content-hash": "835ce3358e54c1eff60606b7b7819bbf",
     "packages": [
         {
             "name": "brick/math",
@@ -209,6 +209,56 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.3"
             },
             "time": "2024-07-08T12:26:09+00:00"
+        },
+        {
+            "name": "dmcode/pkg-news",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmcode-git/pkg-news.git",
+                "reference": "60dc8acd2257a984ae9501c0b2fdde569bb64dab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmcode-git/pkg-news/zipball/60dc8acd2257a984ae9501c0b2fdde569bb64dab",
+                "reference": "60dc8acd2257a984ae9501c0b2fdde569bb64dab",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^12.0",
+                "php": "^8.4"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": [],
+                    "providers": [
+                        "DMCode\\NewsPackage\\NewsPackageServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DMCode\\NewsPackage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "DouDangt",
+                    "email": "datpa@dmcode.info"
+                }
+            ],
+            "description": "The package News for laravel system",
+            "support": {
+                "issues": "https://github.com/dmcode-git/pkg-news/issues",
+                "source": "https://github.com/dmcode-git/pkg-news/tree/main"
+            },
+            "time": "2025-08-03T09:13:05+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -8280,7 +8330,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "dmcode/pkg-news": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
