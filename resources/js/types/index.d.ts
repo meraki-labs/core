@@ -18,7 +18,7 @@ export interface NavGroup {
 export interface NavItem {
     title: string;
     href: string;
-    icon?: LucideIcon | null;
+    icon?: string;
     isActive?: boolean;
 }
 
@@ -54,5 +54,6 @@ export interface SharedPageProps {
       success?: string
       error?: string
     }
+    menus?: NavItem[]
     [key: string]: unknown
 }
