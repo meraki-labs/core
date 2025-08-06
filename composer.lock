@@ -216,7 +216,7 @@
             "dist": {
                 "type": "path",
                 "url": "../pkg-news",
-                "reference": "5497323684872f2a4a56d4295d60ebef8677d963"
+                "reference": "c012cd77e17085980bf1e3febd202734c98a7081"
             },
             "require": {
                 "illuminate/support": "^12.0",

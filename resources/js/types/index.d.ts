@@ -41,3 +41,18 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface SharedPageProps {
+    auth?: {
+      user?: {
+        id: number
+        name: string
+        email: string
+      }
+    }
+    flash?: {
+      success?: string
+      error?: string
+    }
+    [key: string]: unknown
+}
