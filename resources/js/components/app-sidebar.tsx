@@ -6,14 +6,6 @@ import { SharedPageProps, type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 import AppLogo from './app-logo';
 
-// const mainNavItems: NavItem[] = [
-//     {
-//         title: 'Dashboard',
-//         href: route('dashboard'),
-//         icon: LayoutGrid,
-//     },
-// ];
-
 const footerNavItems: NavItem[] = [
     {
         title: 'Repository',
