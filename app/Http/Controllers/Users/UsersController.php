@@ -30,6 +30,8 @@ class UsersController extends Controller
             ->latest()
             ->paginate($perPage)
             ->withQueryString();
+
+        $content = file_get_contents(storage_path('app/public/tasks.json'));
         return Inertia::render('users/index', [
             'users' => $users,
             'filters' => [
@@ -37,6 +39,7 @@ class UsersController extends Controller
                 'sort_by' => $sortBy,
                 'sort_type' => $sortType,
             ],
+            'tasks' => json_decode($content, true)
         ]);
     }
 

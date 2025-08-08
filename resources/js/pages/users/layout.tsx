@@ -1,45 +1,36 @@
-import { PropsWithChildren } from 'react'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { router, usePage } from '@inertiajs/react'
-import { useEffect, useState } from 'react'
-import { Card, CardContent } from '@/components/ui/card'
-import { Button, Input } from '@headlessui/react'
+import { ReactNode } from 'react'
+import { Head } from '@inertiajs/react'
+import AppLayout from '@/layouts/app-layout'
+import { BreadcrumbItem, TabItem } from '@/types'
 
-export default function UsersLayout({ children }: PropsWithChildren) {
-    const { url } = usePage()
-    const currentPath = (url.split('/').pop() || '' ).split('?').shift() || ''
-    const [tab, setTab] = useState(currentPath)
+interface UserLayoutProps {
+    children: ReactNode;
+    breadcrumbs?: BreadcrumbItem[];
+}
 
-    useEffect(() => {
-        setTab(currentPath)
-    }, [currentPath])
-
-    const handleChange = (value: string) => {
-        router.visit(`/users/${value}`)
-    }
+export default function UsersLayout({ children, breadcrumbs, ...props }: UserLayoutProps) {
+    const tabs: TabItem[] = [
+        {
+            title: 'List',
+            href: route('users.index', [], false)
+        },
+        {
+            title: 'Deleted',
+            href: route('users.trashed', [], false)
+        },
+        {
+            title: 'Setting',
+            href: route('users.index', [], false)
+        },
+    ]
 
     return (
-        <div className='w-full mx-auto space-y-4'>
-            <div className='w-full flex items-center justify-between flex-wrap rounded-md bg-background shadow-sm'>
-                <Tabs value={tab} onValueChange={handleChange} defaultValue=''>
-                    <TabsList>
-                        <TabsTrigger value="index" className='cursor-pointer'>List</TabsTrigger>
-                        <TabsTrigger value="trashed" className='cursor-pointer'>Deleted</TabsTrigger>
-                        <TabsTrigger value="settings" className='cursor-pointer'>Setting</TabsTrigger>
-                    </TabsList>
-                </Tabs>
-
-                {/* Input + Button */}
-                <div className="flex items-center gap-2">
-                    <Input placeholder="Tìm kiếm..." className="w-64" />
-                    <Button>Tìm</Button>
-                </div>
+        <AppLayout breadcrumbs={breadcrumbs} tabs={tabs} {...props}>
+            <Head title="Users" />
+            <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4 overflow-x-auto">
+                {children}
             </div>
-            <Card>
-                <CardContent>
-                    {children}
-                </CardContent >
-            </Card>
-        </div>
+
+        </AppLayout>
     )
 }

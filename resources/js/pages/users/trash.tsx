@@ -70,12 +70,9 @@ export default function Users() {
     }
 
     return (
-        <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Users" />
-            <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4 overflow-x-auto">
-                <UsersLayout>
-                    {/* Search */}
-                    {/* <form onSubmit={handleSearch} className="flex gap-2 mb-4">
+        <UsersLayout breadcrumbs={breadcrumbs}>
+            {/* Search */}
+            {/* <form onSubmit={handleSearch} className="flex gap-2 mb-4">
                         <input
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
@@ -87,51 +84,49 @@ export default function Users() {
                         </button>
                     </form> */}
 
-                    <Table>
-                        <TableCaption>A list of your users.</TableCaption>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead className="w-[100px] cursor-pointer" onClick={() => toggleSort('name')}>Name</TableHead>
-                                <TableHead className="cursor-pointer" onClick={() => toggleSort('email')}>Email</TableHead>
-                                <TableHead>Status</TableHead>
-                                <TableHead className="text-right">Action</TableHead>
+            <Table>
+                <TableCaption>A list of your users.</TableCaption>
+                <TableHeader>
+                    <TableRow>
+                        <TableHead className="w-[100px] cursor-pointer" onClick={() => toggleSort('name')}>Name</TableHead>
+                        <TableHead className="cursor-pointer" onClick={() => toggleSort('email')}>Email</TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead className="text-right">Action</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {users.data.length > 0 ? (
+                        users.data.map(user => (
+                            <TableRow key={user.id}>
+                                <TableCell className="font-medium">{user.name}</TableCell>
+                                <TableCell>{user.email}</TableCell>
+                                <TableCell>Active</TableCell>
+                                <TableCell className="text-right">
+                                    <a href='#'>Edit</a>
+                                </TableCell>
                             </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {users.data.length > 0 ? (
-                                users.data.map(user => (
-                                    <TableRow key={user.id}>
-                                        <TableCell className="font-medium">{user.name}</TableCell>
-                                        <TableCell>{user.email}</TableCell>
-                                        <TableCell>Active</TableCell>
-                                        <TableCell className="text-right">
-                                            <a href='#'>Edit</a>
-                                        </TableCell>
-                                    </TableRow>
-                                ))
-                            ) : (
-                                <TableRow>
-                                    <TableCell colSpan={4} className="text-center">No users found.</TableCell>
-                                </TableRow>
-                            )}
-                        </TableBody>
-                    </Table>
+                        ))
+                    ) : (
+                        <TableRow>
+                            <TableCell colSpan={4} className="text-center">No users found.</TableCell>
+                        </TableRow>
+                    )}
+                </TableBody>
+            </Table>
 
-                    {/* Pagination */}
-                    <div className="flex flex-wrap gap-2 mt-6">
-                        {users.links.map((link, i) => (
-                            <button
-                                key={i}
-                                disabled={!link.url}
-                                onClick={() => link.url && router.get(link.url)}
-                                className={`px-3 py-1 border rounded text-sm ${link.active ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'
-                                    }`}
-                                dangerouslySetInnerHTML={{ __html: link.label }}
-                            />
-                        ))}
-                    </div>
-                </UsersLayout>
+            {/* Pagination */}
+            <div className="flex flex-wrap gap-2 mt-6">
+                {users.links.map((link, i) => (
+                    <button
+                        key={i}
+                        disabled={!link.url}
+                        onClick={() => link.url && router.get(link.url)}
+                        className={`px-3 py-1 border rounded text-sm ${link.active ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'
+                            }`}
+                        dangerouslySetInnerHTML={{ __html: link.label }}
+                    />
+                ))}
             </div>
-        </AppLayout>
+        </UsersLayout>
     );
 }

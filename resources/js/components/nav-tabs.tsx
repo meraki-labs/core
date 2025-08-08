@@ -5,11 +5,8 @@ import { TabItem } from "@/types";
 
 export function NavTabs({ tabs }: { tabs: TabItem[] }) {
     const { url } = usePage()
-    // const currentPath = url.split('?').shift() || ''
     const currentPath = url
     const [tab, setTab] = useState(currentPath)
-
-    console.log(currentPath);
 
     useEffect(() => {
         setTab(currentPath)
