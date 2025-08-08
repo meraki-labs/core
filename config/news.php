@@ -8,5 +8,6 @@ return [
             'route_name' => 'news.index',
             'priority' => 1
         ],
+
     ]
 ];

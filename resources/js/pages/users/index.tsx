@@ -27,15 +27,15 @@ const breadcrumbs: BreadcrumbItem[] = [
 const tabs: TabItem[] = [
     {
         title: 'List',
-        href: route('users.index')
+        href: route('users.index', [], false)
     },
     {
         title: 'Deleted',
-        href: route('users.trashed')
+        href: route('users.trashed', [], false)
     },
     {
         title: 'Setting',
-        href: route('users.index')
+        href: route('users.index', [], false)
     },
 ]
 
