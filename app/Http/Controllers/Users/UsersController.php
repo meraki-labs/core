@@ -9,37 +9,44 @@ use Inertia\Inertia;
 
 class UsersController extends Controller
 {
+
+    /**
+     * Extract filters from Request
+     */
+    private function filterExtractor(Request $request)
+    {
+        $filters = [
+            'keywords' => $request->input('keywords', config('app.search_default.keywords')),
+            'limit' => $request->input('limit', config('app.search_default.limit')),
+            'sort' => $request->input('sort', config('app.search_default.sort')),
+            'order' => $request->input('order', config('app.search_default.order'))
+        ];
+
+        return $filters;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        // Get search input
-        $search = $request->input('search', null);
-        $perPage = $request->input('per_page', 15);
-        $sortBy = $request->input('sort_by', 'created_at');
-        $sortType = $request->input('sort_type', 'asc');
+        // Get filters input
+        $filters = $this->filterExtractor($request);
 
         //Get data
         $users = User::query()
-            ->when($search, function ($query, $search) {
-                $query->where('name', 'like', "%{$search}%")
-                    ->orWhere('email', 'like', "%{$search}%");
+            ->when($filters['keywords'], function ($query, $keywords) {
+                $query->where('name', 'like', "%{$keywords}%")
+                    ->orWhere('email', 'like', "%{$keywords}%");
             })
-            ->orderBy($sortBy, $sortType)
+            ->orderBy($filters['sort'], $filters['order'])
             ->latest()
-            ->paginate($perPage)
+            ->paginate($filters['limit'])
             ->withQueryString();
 
-        $content = file_get_contents(storage_path('app/public/tasks.json'));
         return Inertia::render('users/index', [
             'users' => $users,
-            'filters' => [
-                'search' => $search,
-                'sort_by' => $sortBy,
-                'sort_type' => $sortType,
-            ],
-            'tasks' => json_decode($content, true)
+            'filters' => $filters,
         ]);
     }
 

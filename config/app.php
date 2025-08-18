@@ -123,4 +123,10 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'search_default' => [
+        'keywords' => null,
+        'limit' => env('ITEMS_PER_PAGE', 20),
+        'sort' => 'created_at',
+        'order' => 'asc'
+    ],
 ];
