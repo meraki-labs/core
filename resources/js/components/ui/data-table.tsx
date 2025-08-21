@@ -23,26 +23,20 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./table"
+} from "@/components/ui/table"
 
-import { DataTablePagination } from "../../pages/users/data-table-pagination"
-import { DataTableToolbar } from "../../pages/users/data-table-toolbar"
+import { DataTablePagination } from "../../pages/users/components/pagination"
+import { DataTableToolbar } from "../../pages/users/components/data-table-toolbar"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }
 
-export function DataTable<TData, TValue>({
-  columns,
-  data,
-}: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({ columns, data, ...props }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({})
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({})
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  )
+  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
   const [sorting, setSorting] = React.useState<SortingState>([])
 
   const table = useReactTable({

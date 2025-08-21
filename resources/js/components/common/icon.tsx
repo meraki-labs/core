@@ -5,7 +5,7 @@ import * as Icons from "lucide-react";
 import { LucideIcon } from 'lucide-react';
 
 interface IconProps extends Omit<LucideProps, 'ref'> {
-  iconNode: ComponentType<LucideProps>;
+  iconNode: ComponentType<LucideProps> | string;
 }
 
 export function Icon({ iconNode: IconComponent, className, ...props }: IconProps) {

@@ -36,8 +36,8 @@ class UsersController extends Controller
         //Get data
         $users = User::query()
             ->when($filters['keywords'], function ($query, $keywords) {
-                $query->where('name', 'like', "%{$keywords}%")
-                    ->orWhere('email', 'like', "%{$keywords}%");
+                $query->where('name', 'ilike', "%{$keywords}%")
+                    ->orWhere('email', 'ilike', "%{$keywords}%");
             })
             ->orderBy($filters['sort'], $filters['order'])
             ->latest()

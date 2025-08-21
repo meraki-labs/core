@@ -1,7 +1,7 @@
 "use client"
 
-import { DataTableColumnHeader } from "@/pages/users/data-table-column-header"
-import { DataTableRowActions } from "@/pages/users/data-table-row-actions"
+import { DataTableColumnHeader } from "@/pages/users/components/data-table-column-header"
+import { DataTableRowActions } from "@/pages/users/components/data-table-row-actions"
 import { Checkbox } from "@/components/ui/checkbox"
 import { ColumnDef } from "@tanstack/react-table"
 import { format } from "date-fns";
@@ -9,7 +9,7 @@ import { format } from "date-fns";
 // This type is used to define the shape of our data.
 export type User = {
   id: number
-  name: number
+  name: string
   email: string
   status?: "active" | "inactive"
   updated_by: string
@@ -17,7 +17,7 @@ export type User = {
   updated_at: string
 }
 
-export const userColumn: ColumnDef<User>[] = [
+export const userColumns: ColumnDef<User>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -48,7 +48,7 @@ export const userColumn: ColumnDef<User>[] = [
       <DataTableColumnHeader column={column} title="ID" />
     ),
     cell: ({ row }) => <div className="w-[10px]">{row.getValue("id")}</div>,
-    enableSorting: false,
+    enableSorting: true,
     enableHiding: false,
   },
   {
@@ -59,15 +59,15 @@ export const userColumn: ColumnDef<User>[] = [
     cell: ({ row }) => {
 
       return (
-        <div className="flex space-x-2">
-          <span className="max-w-[500px] truncate font-medium">
+        <div className="flex">
+          <span className="truncate font-medium">
             {row.getValue("name")}
           </span>
         </div>
       )
     },
     enableSorting: true,
-    enableHiding: false,
+    enableHiding: true,
   },
   {
     accessorKey: "email",
@@ -77,8 +77,8 @@ export const userColumn: ColumnDef<User>[] = [
     cell: ({ row }) => {
 
       return (
-        <div className="flex space-x-2">
-          <span className="max-w-[500px] truncate font-medium">
+        <div className="flex">
+          <span className="truncate font-medium">
             {row.getValue("email")}
           </span>
         </div>
@@ -96,14 +96,14 @@ export const userColumn: ColumnDef<User>[] = [
 
       return (
         <div className="flex space-x-2">
-          <span className="max-w-[500px] truncate font-medium">
+          <span className="max-w-[100px] truncate font-medium">
             {format(row.getValue("created_at"), 'dd/MM/yyyy')}
           </span>
         </div>
       )
     },
     enableSorting: true,
-    enableHiding: false,
+    enableHiding: true,
   },
   {
     accessorKey: "updated_at",
@@ -113,14 +113,14 @@ export const userColumn: ColumnDef<User>[] = [
     cell: ({ row }) => {
       return (
         <div className="flex space-x-2">
-          <span className="max-w-[500px] truncate font-medium">
+          <span className="max-w-[100px] truncate font-medium">
             {format(row.getValue("updated_at"), 'dd/MM/yyyy')}
           </span>
         </div>
       )
     },
     enableSorting: true,
-    enableHiding: false,
+    enableHiding: true,
   },
   {
     id: "actions",
