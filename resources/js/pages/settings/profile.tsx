@@ -4,8 +4,8 @@ import { Head, Link, useForm, usePage } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
 
 import DeleteUser from '@/pages/settings/components/delete-user';
-import HeadingSmall from '@/components/blocks/heading-small';
-import InputError from '@/components/blocks/input-error';
+import HeadingSmall from '@/components/shared/heading-small';
+import InputError from '@/components/shared/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';

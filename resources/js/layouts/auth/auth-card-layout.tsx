@@ -1,7 +1,16 @@
-import AppLogoIcon from '@/components/app-logo-icon';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from '@inertiajs/react';
 import { type PropsWithChildren } from 'react';
+
+//Shadcn UI
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card';
+
+import AppLogoIcon from '@/components/blocks/brand/app-logo-icon';
 
 export default function AuthCardLayout({
   children,

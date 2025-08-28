@@ -1,7 +1,8 @@
-import AppLogoIcon from '@/components/app-logo-icon';
 import { type SharedData } from '@/types';
-import { Link, usePage } from '@inertiajs/react';
 import { type PropsWithChildren } from 'react';
+import { Link, usePage } from '@inertiajs/react';
+
+import AppLogoIcon from '@/components/blocks/brand/app-logo-icon';
 
 interface AuthLayoutProps {
   title?: string;

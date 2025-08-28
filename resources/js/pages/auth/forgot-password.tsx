@@ -3,8 +3,8 @@ import { Head, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 import { FormEventHandler } from 'react';
 
-import InputError from '@/components/blocks/input-error';
-import TextLink from '@/components/common/text-link';
+import InputError from '@/components/shared/input-error';
+import TextLink from '@/components/blocks/text/text-link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';

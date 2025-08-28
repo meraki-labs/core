@@ -1,9 +1,11 @@
-import { AppContent } from '@/components/app-content';
-import { AppShell } from '@/components/app-shell';
-import { AppSidebar } from '@/components/app-sidebar';
-import { AppSidebarHeader } from '@/components/app-sidebar-header';
-import { TabItem, type BreadcrumbItem } from '@/types';
 import { type PropsWithChildren } from 'react';
+import { TabItem, type BreadcrumbItem } from '@/types';
+
+import { AppShell } from '@/layouts/app/_components/app-shell';
+import { AppContent } from '@/layouts/app/_components/app-content';
+
+import { AppSidebar } from './app-sidebar';
+import { AppSidebarHeader } from './app-sidebar-header';
 
 export default function AppSidebarLayout({ children, breadcrumbs = [], tabs = [] }: PropsWithChildren<{ breadcrumbs?: BreadcrumbItem[], tabs?: TabItem[] }>) {
   return (

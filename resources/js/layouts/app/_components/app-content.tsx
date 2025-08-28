@@ -1,5 +1,6 @@
-import { SidebarInset } from '@/components/ui/sidebar';
 import * as React from 'react';
+//Shadcn UI
+import { SidebarInset } from '@/components/ui/sidebar';
 
 interface AppContentProps extends React.ComponentProps<'main'> {
   variant?: 'header' | 'sidebar';

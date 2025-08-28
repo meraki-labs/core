@@ -1,10 +1,24 @@
-import { NavFooter } from '@/components/blocks/nav-footer';
-import { NavMain } from '@/components/blocks/nav-main';
-import { NavUser } from '@/components/blocks/nav-user';
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
-import { SharedPageProps, type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import AppLogo from './app-logo';
+import { SharedPageProps, type NavItem } from '@/types';
+
+//Shadcn UI
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem
+} from '@/components/ui/sidebar';
+
+//Blocks
+import AppLogo from '@/components/blocks/brand/app-logo';
+
+//Parts
+import { NavMain } from '@/layouts/app/_components/nav-main';
+import { NavUser } from '@/layouts/app/_components/nav-user';
+import { NavFooter } from '@/layouts/app/_components/nav-footer';
 
 const footerNavItems: NavItem[] = [
   {

@@ -1,7 +1,9 @@
-import { router, usePage } from "@inertiajs/react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useEffect, useState } from "react";
 import { TabItem } from "@/types";
+import { useEffect, useState } from "react";
+import { router, usePage } from "@inertiajs/react";
+
+//Shadcn UI
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export function NavTabs({ tabs }: { tabs: TabItem[] }) {
   const { url } = usePage()
@@ -22,7 +24,9 @@ export function NavTabs({ tabs }: { tabs: TabItem[] }) {
         <Tabs value={tab} onValueChange={handleChange} defaultValue=''>
           <TabsList>
             {tabs.map((item, index) => (
-              <TabsTrigger key={index} value={item.href} className='cursor-pointer'>{item.title}</TabsTrigger>
+              <TabsTrigger key={index} value={item.href} className='cursor-pointer'>
+                {item.title}
+              </TabsTrigger>
             ))}
           </TabsList>
         </Tabs>

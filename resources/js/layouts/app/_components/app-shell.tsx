@@ -1,6 +1,8 @@
-import { SidebarProvider } from '@/components/ui/sidebar';
 import { SharedData } from '@/types';
 import { usePage } from '@inertiajs/react';
+
+//Shadcn UI
+import { SidebarProvider } from '@/components/ui/sidebar';
 
 interface AppShellProps {
   children: React.ReactNode;

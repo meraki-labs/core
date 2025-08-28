@@ -1,19 +1,28 @@
-import { Breadcrumbs } from '@/components/blocks/breadcrumbs';
-import { Icon } from '@/components/common/icon';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { NavigationMenu, NavigationMenuItem, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { UserMenuContent } from '@/components/blocks/user-menu-content';
-import { useInitials } from '@/hooks/use-initials';
 import { cn } from '@/lib/utils';
-import { type BreadcrumbItem, type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
+import { useInitials } from '@/hooks/use-initials';
 import { BookOpen, Folder, LayoutGrid, Menu, Search } from 'lucide-react';
-import AppLogo from './app-logo';
-import AppLogoIcon from './app-logo-icon';
+import { type BreadcrumbItem, type NavItem, type SharedData } from '@/types';
+//Shadcn UI
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuList,
+  navigationMenuTriggerStyle
+} from '@/components/ui/navigation-menu';
+import { Icon } from '@/components/ui/icon';
+import { Button } from '@/components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+//Blocks
+import AppLogo from '@/components/blocks/brand/app-logo';
+import { Breadcrumbs } from '@/components/blocks/breadcrumbs';
+import AppLogoIcon from '@/components/blocks/brand/app-logo-icon';
+//Parts
+import { UserMenuContent } from '@/layouts/app/_components/user-menu-content';
+
 
 const mainNavItems: NavItem[] = [
   {
